@@ -1,0 +1,17 @@
+-----------------------------------------------------------------------
+{{ .Release.Name }} release has been deployed in {{ .Release.Namespace }} project for {{ .Chart.Name }} chart!
+Application name is {{ include "myapp.fullname" . }}!
+
+To access the app:
+
+  Route: {{ .Values.route.host }}
+  Port: {{ .Values.service.port }}
+
+Check pods:
+  oc get pods -n {{ .Release.Namespace }}
+
+
+Check logs:
+  oc logs deployment/{{ include "myapp.fullname" . }}
+
+-----------------------------------------------------------------------

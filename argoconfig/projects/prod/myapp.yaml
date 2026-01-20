@@ -1,0 +1,11 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: myapp-prod
+  namespace: argocd
+spec:
+  sourceRepos:
+    - https://github.com/lisetcabrera/my-gitops
+  destinations:
+    - namespace: myapp-prod
+      server: https://kubernetes.default.svc

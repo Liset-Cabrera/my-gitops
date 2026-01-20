@@ -1,0 +1,12 @@
+apiVersion: v2
+name: weather-api
+description: My Quarkus Weather API Helm chart for OpenShift
+type: application
+version: 0.1.0
+appVersion: "2.0"
+
+
+# dependencies:
+#   - name: postgresql
+#     version: 18.2.1
+#     repository: "https://charts.bitnami.com/bitnami"

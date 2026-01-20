@@ -1,0 +1,24 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: myapp-weather-api-dev
+  namespace: argocd
+spec:
+  project: myapp-dev
+  source:
+    repoURL: https://github.com/lisetcabrera/my-gitops
+    targetRevision: develop
+    path: charts/myapp/weather-api
+    helm:
+      valueFiles:
+        - values.yaml
+        - overlays/dev-values.yaml
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: myapp-dev
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true

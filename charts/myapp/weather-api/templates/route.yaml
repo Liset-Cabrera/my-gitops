@@ -1,0 +1,15 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: {{ include "myapp.fullname" . }}
+spec:
+  to:
+    kind: Service
+    name: {{ include "myapp.fullname" . }}
+  port:
+    targetPort: http 
+  host: {{ .Values.route.host | default ""}}
+  {{- if .Values.route.tls.enabled }}
+  tls:
+    termination: {{ .Values.route.tls.termination | default "edge" }}
+  {{- end }}

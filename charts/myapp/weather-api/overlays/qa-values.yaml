@@ -1,0 +1,23 @@
+replicaCount: 1
+
+image:
+  tag: "1.0"
+  pullPolicy: Always
+
+
+
+route:
+  host: quarkus-app-qa.apps-crc.testing
+
+
+
+resources:
+  requests:
+    cpu: "50m"
+    memory: "128Mi"
+  limits:
+    cpu: "50m"
+    memory: "128Mi"
+
+config:
+  LOG_LEVEL: info
