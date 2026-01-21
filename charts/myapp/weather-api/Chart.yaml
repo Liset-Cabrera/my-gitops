@@ -2,6 +2,8 @@ apiVersion: v2
 name: weather-api
 description: My Quarkus Weather API Helm chart for OpenShift
 type: application
+keywords:
+  - demo
 version: 0.1.0
 appVersion: "2.0"
 

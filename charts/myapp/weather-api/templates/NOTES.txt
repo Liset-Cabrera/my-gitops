@@ -1,17 +1,24 @@
 -----------------------------------------------------------------------
-{{ .Release.Name }} release has been deployed in {{ .Release.Namespace }} project for {{ .Chart.Name }} chart!
+{{ .Release.Name }} release has been deployed in {{ .Release.Namespace }} project with {{ .Chart.Name }} chart!
 Application name is {{ include "myapp.fullname" . }}!
 
 To access the app:
-
-  Route: {{ .Values.route.host }}
-  Port: {{ .Values.service.port }}
+  Route: 
+  {{- if .Values.route.host }}
+   http{{- if .Values.route.tls.enabled -}}s{{- end -}}://{{- .Values.route.host -}}{{ include "myapp.apiEndpoint" . }}
+  {{- else -}}
+   http{{- if .Values.route.tls.enabled -}}s{{- end -}}://{{- include "myapp.fullname" . -}}-{{- .Release.Namespace -}}.apps-crc.testing{{ include "myapp.apiEndpoint" . }}
+  {{- end }}
 
 Check pods:
-  oc get pods -n {{ .Release.Namespace }}
+  oc get pods -l app={{ include "myapp.fullname" . }} -n {{ .Release.Namespace }}
 
 
 Check logs:
   oc logs deployment/{{ include "myapp.fullname" . }}
+
+To learn more about the release, try:
+  helm status {{ .Release.Name }}
+  helm get all {{ .Release.Name }}
 
 -----------------------------------------------------------------------

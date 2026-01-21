@@ -6,15 +6,15 @@ metadata:
 spec:
   project: myapp-dev
   source:
-    repoURL: https://github.com/Liset-Cabrera/my-gitops
+    repoURL: 'https://github.com/Liset-Cabrera/my-gitops.git'
     targetRevision: develop
-    path: charts/myapp/weather-api
+    path: 'charts/myapp/weather-api'
     helm:
       valueFiles:
         - values.yaml
         - overlays/dev-values.yaml
   destination:
-    server: https://kubernetes.default.svc
+    server: 'https://kubernetes.default.svc'
     namespace: myapp-dev
   syncPolicy:
     automated:

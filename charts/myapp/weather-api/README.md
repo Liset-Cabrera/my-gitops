@@ -1,0 +1,1 @@
+This is the Weather API Helm Chart to deploy the app to the cluster

@@ -18,9 +18,13 @@ spec:
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
             - containerPort: {{ .Values.service.port }}
+          {{- if .Values.config }}
           envFrom:
             - configMapRef:
-                name: {{ include "myapp.fullname" . }}
+                name: {{ include "myapp.configmapName" . }}
+          {{- end }}
           securityContext:
             runAsNonRoot: true
-          resources: {{ toYaml (.Values.resources | default dict) | nindent 12 }}
+          {{- if .Values.resources }}
+          resources: {{- toYaml .Values.resources| nindent 12 }}
+          {{- end }}

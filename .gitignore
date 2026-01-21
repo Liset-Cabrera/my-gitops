@@ -1,0 +1,35 @@
+# -----------------------------
+# Ignore OS files
+# -----------------------------
+.DS_Store
+Thumbs.db
+
+# -----------------------------
+# Ignore editor/IDE files
+# -----------------------------
+.vscode/
+*.swp
+*.swo
+.idea/
+
+# -----------------------------
+# Ignore Helm packaged charts
+# -----------------------------
+*.tgz
+
+# -----------------------------
+# Ignore build artifacts / logs
+# -----------------------------
+*.log
+*.out
+
+# -----------------------------
+# Ignore generated HTML from README.md
+# -----------------------------
+README.html
+
+# -----------------------------
+# Optional: ignore temporary files or caches
+# -----------------------------
+tmp/
+*.bak

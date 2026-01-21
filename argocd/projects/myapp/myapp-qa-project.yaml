@@ -5,7 +5,7 @@ metadata:
   namespace: argocd
 spec:
   sourceRepos:
-    - https://github.com/lisetcabrera/my-gitops
+    - https://github.com/Liset-Cabrera/my-gitops.git
   destinations:
     - namespace: myapp-qa
       server: https://kubernetes.default.svc

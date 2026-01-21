@@ -1,6 +1,8 @@
+{{- if .Values.config }}
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: {{ include "myapp.fullname" . }}
+  name: {{ include "myapp.configmapName" . }}
 data:
 {{ toYaml (.Values.config | default dict) | indent 2 }}
+{{- end -}}
