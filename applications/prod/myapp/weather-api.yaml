@@ -6,7 +6,7 @@ metadata:
 spec:
   project: myapp-prod
   source:
-    repoURL: https://github.com/lisetcabrera/my-gitops
+    repoURL: https://github.com/Liset-Cabrera/my-gitops
     targetRevision: main
     path: charts/myapp/weather-api
     helm:
